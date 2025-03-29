@@ -1,7 +1,6 @@
 "use client"
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { formatDistanceToNow } from 'date-fns'
 
 const FeaturedNews = () => {
@@ -24,13 +23,11 @@ const FeaturedNews = () => {
 
   return (
     <div className="relative rounded-xl overflow-hidden bg-gray-900 text-white h-[500px] mb-8">
-      {/* Actual image instead of placeholder */}
-      <Image
+      {/* Fallback to regular img tag */}
+      <img
         src={featuredArticle.image}
         alt={featuredArticle.title}
-        fill
-        priority
-        className="object-cover"
+        className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
       
@@ -49,11 +46,10 @@ const FeaturedNews = () => {
         
         <div className="flex items-center text-gray-300 mb-4">
           <div className="w-10 h-10 rounded-full bg-gray-600 mr-3 relative overflow-hidden">
-            <Image
+            <img
               src={featuredArticle.author.avatar}
               alt={featuredArticle.author.name}
-              fill
-              className="object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
           <div>

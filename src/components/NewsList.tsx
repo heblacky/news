@@ -104,13 +104,11 @@ const NewsCard = ({ item }: { item: NewsItem }) => {
   return (
     <Link href={item.slug} className="card hover:shadow-lg transition-shadow hover:no-underline">
       <div className="aspect-video relative bg-gray-200 overflow-hidden">
-        {/* Use actual image instead of placeholder */}
-        <Image 
+        {/* Fallback to regular img tag */}
+        <img 
           src={item.image} 
           alt={item.title}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
       
@@ -125,11 +123,10 @@ const NewsCard = ({ item }: { item: NewsItem }) => {
         
         <div className="flex items-center text-sm text-gray-500">
           <div className="w-8 h-8 rounded-full bg-gray-200 relative overflow-hidden">
-            <Image 
+            <img 
               src={item.author.avatar} 
               alt={item.author.name}
-              fill
-              className="object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
           <div className="ml-2">
